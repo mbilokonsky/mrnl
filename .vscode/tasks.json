@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+		{
+			"label": "build_script",
+			"type": "shell",
+			"command": "mix escript.build",
+			"problemMatcher": [
+        "$mixCompileError",
+				"$mixCompileWarning"
+			],
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"revealProblems": "onProblem",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false
+			}
+		},
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "mix compile",
+      "problemMatcher": [
+        "$mixCompileError",
+        "$mixCompileWarning"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "mix test",
+      "problemMatcher": [
+        "$mixCompileError",
+        "$mixCompileWarning",
+        "$mixTestFailure"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}

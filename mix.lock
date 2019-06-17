@@ -1,0 +1,7 @@
+%{
+  "elixir_make": {:hex, :elixir_make, "0.5.2", "96a28c79f5b8d34879cd95ebc04d2a0d678cfbbd3e74c43cb63a76adf0ee8054", [:mix], [], "hexpm"},
+  "ex_cli": {:hex, :ex_cli, "0.1.6", "30f97ef0751c75863c669cf34ebb689a5a3ebf9dafd2e73739f173fbd7561a53", [:mix], [], "hexpm"},
+  "ex_ncurses": {:hex, :ex_ncurses, "0.3.1", "1c6c480815c3863fe45cecf54e86dcaa6fa4484847d05c77a090e1ecb384536b", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
+  "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], [], "hexpm"},
+  "sh": {:hex, :sh, "1.1.2", "9a6a01a502080b0787c7661687a74225f951c3932aca08d8d11066ca124ba584", [:mix], [], "hexpm"},
+}
