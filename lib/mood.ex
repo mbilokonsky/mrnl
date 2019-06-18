@@ -14,5 +14,18 @@ defmodule Mood do
 
   def history(tags, edit) do
     Mrnl.history("mood", tags, edit)
+    |> Enum.map(fn %{tags: t} ->
+      case t do
+        ["@great"] -> 3
+        ["@good"] -> 2
+        ["@ok"] -> 1
+        ["@blank"] -> 0
+        ["@meh"] -> -1
+        ["@bad"] -> -2
+        ["@horrible"] -> -3
+        _ -> IO.puts("WTF? ->" <> t <> "<- SHAME!")
+      end
+    end)
+    |> Sparkline.sparkline(minmax: {-3, 3}, spark_bars: ["▂", "▃", "▄", "▅", "▆", "▇", "█"])
   end
 end

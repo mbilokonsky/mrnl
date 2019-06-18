@@ -79,8 +79,11 @@ defmodule Mrnl.CLI do
         end
 
       case context[:history] do
-        true -> Mood.history(tags, context[:edit]) |> IO.inspect()
-        _ -> Mood.new(context[:mood], context[:edit]) |> IO.puts()
+        true ->
+          Mood.history(tags, context[:edit]) |> IO.puts()
+
+        _ ->
+          Mood.new(context[:mood], context[:edit]) |> IO.puts()
       end
     end
   end

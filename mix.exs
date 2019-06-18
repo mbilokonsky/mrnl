@@ -30,7 +30,8 @@ defmodule Mrnl.MixProject do
   defp deps do
     [
       {:poison, "~> 3.1"},
-      {:ex_cli, "~> 0.1.6"}
+      {:ex_cli, "~> 0.1.6"},
+      {:sparkline, git: "https://github.com/mbilokonsky/sparkline"}
     ]
   end
 end

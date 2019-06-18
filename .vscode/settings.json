@@ -1,14 +1,16 @@
 {
-  "cSpell.words": [
-    "Mrnl"
+	"cSpell.words": [
+		"Mrnl"
 	],
-  "[markdown]": {
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"[markdown]": {
 		"editor.wordWrap": "bounded",
 		"editor.wordWrapColumn": 100,
 	},
 	"triggerTaskOnSave.tasks": {
 		"build_script": [
 			"lib/**/*.ex"
-	],
+		],
 	}
 }
