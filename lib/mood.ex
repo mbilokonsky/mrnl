@@ -1,7 +1,14 @@
 defmodule Mood do
+  @moods ["great", "good", "ok", "blank", "meh", "bad", "horrible"]
+
   def new(mood, edit) do
-    moods = ["great", "good", "ok", "blank", "meh", "bad", "horrible"]
-    entry = "Mood: @#{mood || Mio.choice("How do you feel?", moods)}"
+    if :error == Enum.find(@moods, :error, fn i -> i == mood end) do
+      IO.puts("Invalid mood provided. It should be one of [#{Enum.join(@moods, ", ")}]")
+      IO.puts("No data was written.")
+      System.halt()
+    end
+
+    entry = "Mood: @#{mood || Mio.choice("How do you feel?", @moods)}"
     Mrnl.write("mood", entry)
 
     if edit do
