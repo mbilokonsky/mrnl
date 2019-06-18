@@ -64,7 +64,6 @@ defmodule Mrnl.CLI do
     description("Logs your mood to your mood log!")
 
     option(:mood, aliases: [:m], default: nil)
-    option(:edit, aliases: [:e], type: :boolean, help: "Open entry for editing?")
     option(:history, type: :boolean, help: "Get history instead of writing an entry")
     option(:tags, type: :boolean, help: "If getting history, constrain by some tags")
 
@@ -72,7 +71,7 @@ defmodule Mrnl.CLI do
       log(context, :mood)
 
       tags =
-        if context[:history] != nil and context[:tags] != nil do
+        if context[:history] && context[:tags] do
           Mio.prompt_list("Enter tags you want to add: ")
         else
           []
@@ -80,10 +79,10 @@ defmodule Mrnl.CLI do
 
       case context[:history] do
         true ->
-          Mood.history(tags, context[:edit]) |> IO.puts()
+          Mood.history(tags) |> IO.puts()
 
         _ ->
-          Mood.new(context[:mood], context[:edit]) |> IO.puts()
+          Mood.new(context[:mood]) |> IO.puts()
       end
     end
   end

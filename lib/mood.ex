@@ -1,8 +1,8 @@
 defmodule Mood do
   @moods ["great", "good", "ok", "blank", "meh", "bad", "horrible"]
 
-  def new(mood, edit) do
-    if :error == Enum.find(@moods, :error, fn i -> i == mood end) do
+  def new(mood) do
+    if mood && :error == Enum.find(@moods, :error, fn i -> i == mood end) do
       IO.puts("Invalid mood provided. It should be one of [#{Enum.join(@moods, ", ")}]")
       IO.puts("No data was written.")
       System.halt()
@@ -10,10 +10,6 @@ defmodule Mood do
 
     entry = "Mood: @#{mood || Mio.choice("How do you feel?", @moods)}"
     Mrnl.write("mood", entry)
-
-    if edit do
-      Mrnl.edit("mood", "-1")
-    end
   end
 
   def history(), do: history([])
@@ -30,7 +26,7 @@ defmodule Mood do
         ["@meh"] -> -1
         ["@bad"] -> -2
         ["@horrible"] -> -3
-        _ -> IO.puts("WTF? ->" <> t <> "<- SHAME!")
+        _ -> :error
       end
     end)
     |> Sparkline.sparkline(minmax: {-3, 3}, spark_bars: ["▂", "▃", "▄", "▅", "▆", "▇", "█"])
