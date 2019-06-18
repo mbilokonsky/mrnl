@@ -14,9 +14,9 @@ defmodule Mrnl.MixProject do
 
   def escript do
     [
-			main_module: Mrnl.CLI,
-			path: "bin/mrnl"
-		]
+      main_module: Mrnl.CLI,
+      path: "bin/mrnl"
+    ]
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -29,7 +29,7 @@ defmodule Mrnl.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-			{:poison, "~> 3.1"},
+      {:poison, "~> 3.1"},
       {:ex_cli, "~> 0.1.6"}
     ]
   end
